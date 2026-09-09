@@ -83,6 +83,13 @@ uv run pytest tests/ -x -q
 Hydra `SearchPathPlugin` 把本仓库 `conf/<algo>` 追加进 config search path
 （测试不经 CLI，无法用 `--config-dir`）。
 
+## 与 mjlab 的实测对比
+
+在 RTX 5060 8 GB + Core Ultra 9 285K 上的首次 A/B 结果、复现命令和
+精度限制见 [`docs/mjlab-comparison-2026-09-08.md`](docs/mjlab-comparison-2026-09-08.md)。
+当前结论是：UniLab CPU MuJoCo 的训练阶段吞吐与 mjlab 接近，但总墙钟时间和
+内存更高；UniLab 当前 MicroDuck mjwarp host profile 在大 batch 下明显更慢。
+
 ## 资产策略
 
 全部 MicroDuck 资产（7 个 XML + 47 个 STL + 上游 LICENSE + sha256 清单）随仓库
